@@ -198,7 +198,7 @@ class PediaLayer:
             if isinstance(layers[layer], QgsVectorLayer) or \
                isinstance(layers[layer], QgsRasterLayer):
                 layer_list.append(layers[layer].name())
-            map_list.append(layers[layer])
+                map_list.append(layers[layer])
         self.dlg.comboBox.addItems(layer_list)
 
         # show the dialog
