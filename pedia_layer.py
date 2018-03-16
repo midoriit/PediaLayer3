@@ -227,7 +227,7 @@ class PediaLayer:
             else:
                 return
             destCrs = QgsCoordinateReferenceSystem(4326, QgsCoordinateReferenceSystem.EpsgCrsId)
-            transform = QgsCoordinateTransform(srcCrs, destCrs)
+            transform = QgsCoordinateTransform(srcCrs, destCrs, QgsProject.instance())
             wgsExtent = transform.transform(extent)
             xMax = wgsExtent.xMaximum()
             xMin = wgsExtent.xMinimum()
@@ -274,8 +274,8 @@ class PediaLayer:
 
             # add features
             for item in list:
-                feature = QgsFeature(newLayer.pendingFields())
-                feature.setGeometry(QgsGeometry.fromPoint(QgsPoint(float(item["lon"]["value"]), float(item["lat"]["value"]))))
+                feature = QgsFeature(newLayer.fields())
+                feature.setGeometry(QgsGeometry.fromPointXY(QgsPointXY(float(item["lon"]["value"]), float(item["lat"]["value"]))))
                 feature.setAttribute("name", unicode(item["name"]["value"]))
                 feature.setAttribute("url", unicode(item["url"]["value"]))
                 feature.setAttribute("abstract", unicode(item["abstract"]["value"]))

@@ -8,7 +8,7 @@
 
 [general]
 name=PediaLayer3
-qgisMinimumVersion=2.99
+qgisMinimumVersion=3.0
 description=Create a layer from DBpedia
 version=0.1
 author=Midori IT Office, LLC
